@@ -25,7 +25,9 @@ class WidgetGallery(QDialog):
 
         #下拉列表
         style_combobox = QComboBox()
+        #创建一个多选列表
         style_combobox.addItems(QStyleFactory.keys())
+        #添加选项
 
         #标签
         style_label = QLabel("样式")
