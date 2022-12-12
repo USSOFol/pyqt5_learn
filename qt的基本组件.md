@@ -1,3 +1,80 @@
+## a. qt的基本组件（代码篇）
+
+### 1.APP和窗口显示
+
+```python
+from PyQt5.QtWidgets import QApplication,QWidget
+```
+
+QApplication：产生一个APP实例，这个实例可以从系统进行数据输入，系统输入的数据以列表形式传入
+
+QWidget：一个窗口类，实例后可以进行各种设置
+
+```python
+import sys
+from PyQt5.QtWidgets import QApplication,QWidget
+#这是对这两个函数的一个简单的使用
+if __name__ == "__main__":
+    #创建一个QApplication的实例
+    app = QApplication(sys.argv)
+    #sys.argv用一个列表的形式来收集用户在系统中的输入
+    #创建一个窗口
+    w = QWidget()
+    # 设置窗口尺寸
+    w.resize(300,150)
+    # 移动窗口
+    w.move(300,300)
+    #设置窗口标题
+    w.setWindowTitle("窗口标题")
+    #显示窗口
+    w.show()
+
+    #进入程序的主循环，并且通过exit函数保证主循环安全结束
+    sys.exit(app.exec_())
+```
+
+### 2.四种布局
+
+```python
+import PyQt5.QtWidgets as Widgets
+# 1.垂直布局
+Vertical_Layout = Widgets.QVBoxLayout()
+# 2.水平布局
+Horizontal_Layout = Widgets.QHBoxLayout()
+# 3.栅格布局
+Grid_Layout = Widgets.QGridLayout()
+# 4.窗体布局
+Form_Layout = Widgets.QFormLayout()
+```
+
+
+
+### 3.六种buttons
+
+```python
+import PyQt5.Qtwidgets as widgets
+# 1.pushbutton按钮
+
+# 2.toolbutton工具按钮
+
+# 3.radio button单选按钮
+
+# 4.check box
+
+# 5.command link button
+
+# 6.Dialog button Box
+
+
+```
+
+### 4.两种item views
+
+### 5.三种item widgets
+
+### end.基本组件杂烩
+
+```python
 # pyqt5的基本组件
 from PyQt5.QtCore import QDateTime, QTimer ,Qt
 import PyQt5.QtWidgets as Widgets
@@ -232,15 +309,70 @@ if __name__ =="__main__":
     gallery = WidgetGallery()
     gallery.show()
     sys.exit(app.exec_())
+```
+
+## b.qt的基本组件（designer实现篇）
+
+### 1.创建窗口
+
+创建窗口常见的就这四种，一般选择DialogWithoutButtons
+
+![窗口设置1](D:\img\qt学习\窗口设置1.png)
+
+### 2.功能单元说明
+
+进入designer之后左部菜单拥有如下大类
+
+#### Layouts：
+
+四个布局，分别为垂直布局，水平布局，栅格布局，网格布局
+
+#### Spacers：
+
+#### Buttons:
+
+#### Item Views(Model-Based):
+
+列表，树，表格，专栏，
+
+#### Item Widgets(Item-Based):
+
+#### Containers:
+
+容器部件
+
+#### Input Widgets:
+
+各类输入方法
+
+#### Display Widgets:
+
+演示各类信息使用
+
+### 3.编辑和使用designer创建的界面
+
+使用pyuic对界面进行转换，获取界面后，简单引用代码：
+
+```python
+import cheat
+
+import sys
+
+from PyQt5.QtWidgets import QApplication,QWidget,QMainWindow
+#导入相关模块
+
+if __name__ =="__main__":
+    #创建一个app从系统接收信息
+    app = QApplication(sys.argv)
+    #创建一个主窗口
+    MainWindow =QMainWindow()
+    ui = cheat.Ui_Dialog()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+```
 
 
 
-
-
-
-
-
-
-
-
+### 3.qt内有四种布局
 
